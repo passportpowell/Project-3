@@ -7,6 +7,11 @@
 #attempt to have player not be able to choose same letter multiple times per game
 #attempt to restrict player from using numbers and punctation.
 
+# to fix - decrement for attempts left show up twice. one with just the number and 
+# the other time w attempts left
+#to fix - last letter doesn't show when all answers are correct
+# to fix - use DEF function in code
+
 import random
 
 #countries of europe to choose from
@@ -17,10 +22,10 @@ import random
 
 country = ['Slovakia', 'Slovenia', 'Spain', 'Sweden'] # to fix - use code above for country as this is for testing purpose
 
-print(country)
+# print(country)
 
 word = random.choice(country).lower()
-print(word) # to fix - remove this as it will show the answer
+# print(word) # to fix - remove this as it will show the answer
 
 
 right_guess = []
@@ -38,9 +43,9 @@ while attempts_left > 0:
             chosen_letter += '_ '
     if chosen_letter == word:
         break
-    print("Guess the word: ",chosen_letter)
-    print(attempts_left," chances left")
-    guess = input().lower()
+    print(f"Guess the word, (Clue - {len(word)} Letters): ",chosen_letter)
+    print(attempts_left," chances left \n")
+    guess = input("Enter Guess Here: \n").lower()
     # code below is checking if we've already used a letter before 
     # regardlesws if it was correct or not
     if guess in right_guess or guess in wrong_guess:
@@ -60,6 +65,6 @@ while attempts_left > 0:
         print(attempts_left) # to fix - Print an image of hangman for each wrong answer
 
 if attempts_left > 0:
-    print("You Got The Country, Congratulations!!!")
+    print(f"You Got The Country {word.upper()}, Congratulations!!!")
 else:
     print("Your Attempts Are Over. You Were So Close Try again.")
