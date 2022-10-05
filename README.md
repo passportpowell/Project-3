@@ -1,3 +1,7 @@
+Code wasn't working after i completed my unctions as i forgot to call the function at the end
+
+Was having major issues with code not running past allowing player to enter their 1st guest. I was trying to subract a "list" from a "list" and upon changing them to "sets" i had forgotten to change my "append" to "add"
+
 Attempts left would not decrement instead just shows -1
 Fixed by finding out that i was printing the wrong code.
 
