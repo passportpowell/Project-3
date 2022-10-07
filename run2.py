@@ -20,6 +20,7 @@
 
 import random
 import string
+from countries import country
 
 #  countries of europe to choose from
 country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czechia',]
@@ -99,6 +100,8 @@ def hang_game(word):
             elif player_guess != word:
                 print(player_guess, "is not the Country.")
                 attempts_left -= 1
+                print(scaffold)
+
                 print("You Have", attempts_left)
                 #  print()   To fix - have image of a hangman each time answer is wrong
                 used_words.append(player_guess)
@@ -129,6 +132,67 @@ def main():
         word = pick_country()
         hang_game(word)
  
- 
+def print_scaffold(attempts_left): # prints the scaffold
+		if (attempts_left == 0):
+				print("_________")
+				print("|	 |")
+				print("|")
+				print("|")
+				print("|")
+				print("|")
+				print("|________")
+		elif (attempts_left == 1):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|")
+				print("|")
+				print("|")
+				print("|________")
+		elif (attempts_left == 2):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|	 |")
+				print("|	 |")
+				print("|")
+				print("|________")
+		elif (attempts_left == 3):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|	\|")
+				print("|	 |")
+				print("|")
+				print("|________")
+		elif (attempts_left == 4):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|	\|/")
+				print("|	 |")
+				print("|")
+				print("|________")
+		elif (attempts_left == 5):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|	\|/")
+				print("|	 |")
+				print("|	/")
+				print("|________")
+		elif (attempts_left == 6):
+				print("_________")
+				print("|	 |")
+				print("|	 O")
+				print("|	\|/")
+				print("|	 |")
+				print("|	/ \ ")
+				print("|________")
+				print("\n"
+			
+
+
+
 if __name__ == "__main__":
     main()

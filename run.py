@@ -12,6 +12,8 @@
 # the other time w attempts left
 # to fix - last letter doesn't show when all answers are correct
 # to fix - use DEF function in code
+# to fix - if multiple of the same letter ONLY the 1st occurance is shown instead of all. Fixed by finding out i had to use enumerate() function. solutions found her https://stackoverflow.com/questions/27662404/trying-to-find-the-same-item-in-a-list-with-the-context-of-hangman https://stackoverflow.com/questions/63922601/how-to-build-a-list-with-the-duplicated-letters-from-another-string-python-h
+
 # to fix - Game wont end after correctly guessing
 # to fix - attempts won decrement. Fixed by realising that i had not spell checked.
 # To fix - have image of a hangman progress each time answer is wrong
@@ -57,7 +59,7 @@ def hang_game(word):
 
 
         # Forcing player input the be uppercase for equality check later ==     
-        player_guess = input("Please guess a letter or word: ").upper()
+        player_guess = input("Please guess a letter or word: \n").upper()
 
         # if loop for 3 conditions (Word, Letter or other which should result in an invalid message))
 
@@ -82,11 +84,13 @@ def hang_game(word):
                 # word_list = [letter if letter in used_letters or used_words else '_' for letter in word_completion]
                 # print('Country: ', ' '.join(word_list))
  
-                word_as_list = list(country_chosen)
+                # To update the country_chosen variable and show the player where the correct chosen letters appear
+                country_as_list = list(country_chosen)
+                #  Want the index and letter at the index. code should replace "_" with the correct guesses
                 indices = [i for i, letter in enumerate(word) if letter == player_guess]
                 for index in indices:
-                    word_as_list[index] = player_guess
-                country_chosen = "".join(word_as_list)
+                    country_as_list[index] = player_guess
+                country_chosen = "".join(country_as_list)
                 if "_" not in country_chosen:
                     player_won = True
 
@@ -125,7 +129,7 @@ def main():
     hang_game(word)
 
     # While loop to get game to restart from the beginning if player put Y or YES in
-    while input("hang_game Again? (Y-YES/N-NO) ").upper() == "Y" or "YES":
+    while input("hang_game Again? (Y-YES/N-NO) \n").upper() == "Y" or "YES":
         word = pick_country()
         hang_game(word)
  
