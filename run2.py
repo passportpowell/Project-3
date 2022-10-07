@@ -16,11 +16,9 @@
 # to fix - attempts won decrement. Fixed by realising that i had not spell checked.
 # To fix - have image of a hangman progress each time answer is wrong
 
-
-
 import random
-import string
-from countries import country
+import string # to fix - remove
+import sys # to fix - remove
 
 #  countries of europe to choose from
 country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czechia',]
@@ -28,6 +26,61 @@ country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czechia',]
 # 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands','Poland',
 # 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
 # print(country)
+
+def hangman_pic(attempts_left):
+    print("Module works", attempts_left)
+    if attempts_left == 4:
+        print("   _________ n")
+        print("  |         \n")
+        print("  |      \n")
+        print("  |      \n")
+        print("  |      \n")
+        print("  |      \n")
+        print("  |      \n")
+        print("__|__\n")
+
+    if attempts_left == 3:
+        print("   _________ \n")
+        print("  |        | \n")
+        print("  |        |\n")
+        print("  |        | \n")
+        print("  |        O \n")
+        print("  |         \n")
+        print("  |      \n")
+        print("__|__\n")
+
+    if attempts_left == 2:        
+        print("   _________ \n")
+        print("  |        | \n")
+        print("  |        |\n")
+        print("  |        | \n")
+        print("  |        O \n")
+        print("  |       / \ \n")
+        print("  |      \n")
+        print("__|__\n")
+
+ 
+    if attempts_left == 1:    
+        print("   _________ \n")
+        print("  |        | \n")
+        print("  |        |\n")
+        print("  |        | \n")
+        print("  |        O \n")
+        print("  |       /|\ \n")
+        print("  |      \n")
+        print("__|__\n")
+
+ 
+    if attempts_left == 0:
+        print("   _________ \n")
+        print("  |        | \n")
+        print("  |        |\n")
+        print("  |        | \n")
+        print("  |        O \n")
+        print("  |       /|\ \n")
+        print("  |       / \ \n")
+        print("__|__\n")
+	
 
 def pick_country():
     word = random.choice(country)    
@@ -39,11 +92,11 @@ def pick_country():
  
 def hang_game(word):
     country_chosen = "_" * len(word)  # Puts the chosen country as "_" for each letter in the word 
-
     player_won = False
     used_letters = []
     used_words = []
     attempts_left = 10
+    # hanging_man_count
 
     print("-----------------------------------------------------------------")
     print("Welcome to Hangman!")
@@ -54,9 +107,6 @@ def hang_game(word):
     print("\n")
 
     while not player_won and attempts_left > 0:
-
-
-
         # Forcing player input the be uppercase for equality check later ==     
         player_guess = input("Please guess a letter or word: ").upper()
 
@@ -73,7 +123,10 @@ def hang_game(word):
                 print(player_guess, "is not in the chosen Country. Try again!")
                 # Use += or -+
                 attempts_left -= 1
-                print("You Have", attempts_left)
+                print("You Have", attempts_left, "attempts remaining!")
+                if attempts_left <= 6:
+                    hangman_pic(attempts_left)
+
                 #  print()   To fix - have image of a hangman each time answer is wrong                
                 used_letters.append(player_guess)  # adds letter chosen to list
 
@@ -100,9 +153,8 @@ def hang_game(word):
             elif player_guess != word:
                 print(player_guess, "is not the Country.")
                 attempts_left -= 1
-                print(scaffold)
 
-                print("You Have", attempts_left)
+                print("You Have", attempts_left, "attempts remaining!")
                 #  print()   To fix - have image of a hangman each time answer is wrong
                 used_words.append(player_guess)
 
@@ -128,70 +180,13 @@ def main():
     hang_game(word)
 
     # While loop to get game to restart from the beginning if player put Y or YES in
-    while input("hang_game Again? (Y-YES/N-NO) ").upper() == "Y" or "YES":
+    new_game = input("hang_game Again? (Y-YES/N-NO) " )
+    if new_game.upper() == "Y" or new_game.upper() == "YES":
+        print("Startin new game")
         word = pick_country()
-        hang_game(word)
- 
-def print_scaffold(attempts_left): # prints the scaffold
-		if (attempts_left == 0):
-				print("_________")
-				print("|	 |")
-				print("|")
-				print("|")
-				print("|")
-				print("|")
-				print("|________")
-		elif (attempts_left == 1):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|")
-				print("|")
-				print("|")
-				print("|________")
-		elif (attempts_left == 2):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|	 |")
-				print("|	 |")
-				print("|")
-				print("|________")
-		elif (attempts_left == 3):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|	\|")
-				print("|	 |")
-				print("|")
-				print("|________")
-		elif (attempts_left == 4):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|	\|/")
-				print("|	 |")
-				print("|")
-				print("|________")
-		elif (attempts_left == 5):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|	\|/")
-				print("|	 |")
-				print("|	/")
-				print("|________")
-		elif (attempts_left == 6):
-				print("_________")
-				print("|	 |")
-				print("|	 O")
-				print("|	\|/")
-				print("|	 |")
-				print("|	/ \ ")
-				print("|________")
-				print("\n"
-			
-
+        main()
+    else:
+        print("exiting")
 
 
 if __name__ == "__main__":
