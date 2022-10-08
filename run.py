@@ -12,31 +12,110 @@
 # the other time w attempts left
 # to fix - last letter doesn't show when all answers are correct
 # to fix - use DEF function in code
-# to fix - if multiple of the same letter ONLY the 1st occurance is shown instead of all. Fixed by finding out i had to use enumerate() function. solutions found her https://stackoverflow.com/questions/27662404/trying-to-find-the-same-item-in-a-list-with-the-context-of-hangman https://stackoverflow.com/questions/63922601/how-to-build-a-list-with-the-duplicated-letters-from-another-string-python-h
+# to fix - if multiple of the same letter ONLY the 1st occurance is shown instead of all. Fixed by finding out i had to use 
+# enumerate() function. solutions found her https://stackoverflow.com/questions/27662404/trying-to-find-the-same-item-in-a-list-with-the-context-of-hangman 
+# https://stackoverflow.com/questions/63922601/how-to-build-a-list-with-the-duplicated-letters-from-another-string-python-h
 
 # to fix - Game wont end after correctly guessing
 # to fix - attempts won decrement. Fixed by realising that i had not spell checked.
 # To fix - have image of a hangman progress each time answer is wrong
+# to fix - Want this code for elif G to pick a random word fromm all the above countries
 
 
 
 import random
 import string
 
-#  countries of europe to choose from
-country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czechia',
+
+country_europe = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czechia',
 'Denmark','Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland',
 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands','Poland',
 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
-print(country)
 
+country_south_america = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'French Guiana', 
+'Guyana', 'Paraguay', 'Peru', 'Suriname', 'Uruguay', 'Venezuela']
+
+country_central_america = ['Belize', 'Costa Rica', 'El Salvador', 'Guatemala', 'Honduras', 'Nicaragua', 'Panama']
+
+country_africa = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cape Verde', 'Cameroon', 
+'Central', 'Chad', 'Comoros', 'Congo', 'Djibouti', 'Egypt', 'Guinea', 
+'Eritrea', 'Eswatini', 'Ethiopia', 'Gabon', 'Gambia', 'The', 'Ghana', 'Guinea', 'Guinea-Bissau', 'Ivory Coast', 'Kenya', 'Lesotho', 
+'Liberia', 'Libya', 'Madagascar', 'Malawi', 'Mali', 'Mauritania', 'Mauritius', 'Morocco', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 
+'Rwanda', 'Sao', 'Tome Principe', 'Senegal', 'Seychelles', 'Sierra Leone', 'Somalia', 'South Africa', 'South', 'Sudan', 'Sudan', 
+'Tanzania', 'Togo', 'Tunisia', 'Uganda', 'Zambia', 'Zimbabwe']
+
+country_asia = [ 'Afghanistan', 'Armenia', 'Azerbaijan', 'Bahrain', 'Bangladesh', 'Bhutan', 'British', 'Indian', 'Brunei', 'Cambodia', 'China', 
+'Georgia,', 'Hong', 'Kong', 'India', 'Indonesia', 'Iran', 'Iraq', 'Israel', 'Japan', 'Jordan', 'Kazakhstan', 'Kuwait', 'Kyrgyzstan', 
+'Laos', 'Lebanon', 'Macau', 'Malaysia', 'Maldives', 'Mongolia', 'Myanmar', 'Nepal', 'North', 'Korea', 'Oman', 'Pakistan', 'Palestine', 
+'Philippines', 'Qatar', 'Saudi', 'Arabia', 'Singapore', 'South', 'Korea', 'Sri Lanka', 'Syria', 'Taiwan', 'Tajikistan', 'Thailand', 
+'Timor-Leste', 'Timor', 'Turkey', 'Turkmenistan', 'United Arab Emirates', 'Uzbekistan', 'Vietnam', 'Yemen']
+
+Oceana = ['Australia', 'Fiji', 'Kiribati', 'Marshall', 'Islands', 'Micronesia', 'Nauru', 'New', 'Zealand', 'Palau', 'Papua', 'New', 
+'Guinea', 'Samoa', 'Solomon', 'Islands', 'Tonga', 'Tuvalu', 'Vanuatu']
+
+# This code picks a random country depending on the category that the player chooses
 def pick_country():
-    word = random.choice(country)    
-    while '-' in word or ' ' in word:
-        word = random.choice(country)
-    print(word)  #  print(word) # to fix - remove this as it will show the answer
-    return word.upper()
- 
+    print("-----------------------------------------------------------------")
+    print("Welcome to Hangman!")
+    print("----------------------------------------------------------------- \n")
+    category = input("What Category would you like to play? \nA - Europe, \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All \n: ".upper())
+
+    # while category not in ("A", "B", "C", "D", "E", "F"):
+    # while True:
+    if category.upper() == "A":
+        word = random.choice(country_europe)    
+        while '-' in word or ' ' in word:
+            word = random.choice(country_europe)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+    elif category.upper() == "B":
+        word = random.choice(country_south_america)    
+        while '-' in word or ' ' in word:
+            word = random.choice(country_south_america)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+
+    elif category.upper() == "C":
+        word = random.choice(country_central_america)    
+        while '-' in word or ' ' in word:
+            word = random.choice(country_central_america)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+
+    elif category.upper() == "D":
+        word = random.choice(country_africa)    
+        while '-' in word or ' ' in word:
+            word = random.choice(country_africa)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+
+    elif category.upper() == "E":
+        word = random.choice(country_asia)    
+        while '-' in word or ' ' in word:
+            word = random.choice(country_asia)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+
+    elif category.upper() == "F":
+        word = random.choice(Oceana)    
+        while '-' in word or ' ' in word:
+            word = random.choice(Oceana)
+        print(word)  #  print(word) # to fix - remove this as it will show the answer
+        return word.upper()
+
+    # to fix - Want this code to pick a random word fromm all the above countries
+    # elif category.upper() == "G":
+    #     word = random.choice(country_south_america, country_europe, country_central_america, country_africa, country_asia, Oceana)    
+    #     while '-' in word or ' ' in word:
+    #         word = random.choice(country_south_america, country_europe, country_central_america, country_africa, country_asia, Oceana)
+    #     print(word)  #  print(word) # to fix - remove this as it will show the answer
+    #     return word.upper()                     
+
+    else:
+        print("Invalid Category. Please Try Again!....")
+        pick_country()
+        # exit()
+    
  
 def hang_game(word):
     country_chosen = "_" * len(word)  # Puts the chosen country as "_" for each letter in the word 
@@ -46,8 +125,6 @@ def hang_game(word):
     used_words = []
     attempts_left = 10
 
-    print("-----------------------------------------------------------------")
-    print("Welcome to Hangman!")
     print(f"You have", {attempts_left}, "attempts to guess the country name")
     print("----------------------------------------------------------------- \n")
 
