@@ -25,8 +25,8 @@ country_africa = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Bur
 
 country_asia = [ 'Afghanistan', 'Armenia', 'Azerbaijan', 'Bahrain', 'Bangladesh', 'Bhutan', 'British', 'Indian', 'Brunei', 'Cambodia', 'China', 
 'Georgia,', 'Hong', 'Kong', 'India', 'Indonesia', 'Iran', 'Iraq', 'Israel', 'Japan', 'Jordan', 'Kazakhstan', 'Kuwait', 'Kyrgyzstan', 
-'Laos', 'Lebanon', 'Macau', 'Malaysia', 'Maldives', 'Mongolia', 'Myanmar', 'Nepal', 'North', 'Korea', 'Oman', 'Pakistan', 'Palestine', 
-'Philippines', 'Qatar', 'Saudi', 'Arabia', 'Singapore', 'South', 'Korea', 'Sri Lanka', 'Syria', 'Taiwan', 'Tajikistan', 'Thailand', 
+'Laos', 'Lebanon', 'Macau', 'Malaysia', 'Maldives', 'Mongolia', 'Myanmar', 'Nepal', 'North Korea', 'Oman', 'Pakistan', 'Palestine', 
+'Philippines', 'Qatar', 'Saudi Arabia', 'Singapore', 'South Korea', 'Sri Lanka', 'Syria', 'Taiwan', 'Tajikistan', 'Thailand', 
 'Timor-Leste', 'Timor', 'Turkey', 'Turkmenistan', 'United Arab Emirates', 'Uzbekistan', 'Vietnam', 'Yemen']
 
 Oceana = ['Australia', 'Fiji', 'Kiribati', 'Marshall', 'Islands', 'Micronesia', 'Nauru', 'New Zealand', 'Palau', 'Papua New Guinea', 'Samoa', 'Solomon', 'Islands', 'Tonga', 'Tuvalu', 'Vanuatu']
@@ -79,7 +79,6 @@ def hangman_pic(attempts_left):
         print("  |      \n")
         print("__|__\n")
 
- 
     if attempts_left == 2:    
         print("   _________ \n")
         print("  |        | \n")
@@ -114,7 +113,7 @@ def pick_country():
     print("-----------------------------------------------------------------")
     print("Welcome to Hangman!")
     print("----------------------------------------------------------------- \n")
-    category = input("What Category would you like to play? \nA - Europe, \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \n: ".upper())
+    category = input("What Category would you like to play? \nA - Europe, \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All: ".upper())
 
     if category.upper() == "A" or category.upper() == "":
         word = random.choice(country_europe)
@@ -150,6 +149,12 @@ def pick_country():
         word = random.choice(Oceana)
         while '-' in word or ' ' in word:
             word = random.choice(Oceana)
+        return word.upper()
+
+    elif category.upper() == "G":
+        word = random.choice(Oceana + country_europe + country_africa + country_asia + country_south_america + country_central_america)
+        while '-' in word or ' ' in word:
+            word = random.choice(Oceana + country_europe + country_africa + country_asia + country_south_america + country_central_america)
         return word.upper()
 
     else:
