@@ -16,22 +16,19 @@ As a visiting user I would like to see what the game is about and to have access
 ### Future Features
 - Multiplayer
 - Save top 10 Scores
-- Category Selection
+- Wider Category Selection
 
 
-## Main Page
+## Main Screen
 
 ## Features
-- Quiz in random order
-- Reset Quiz
-- Current Score update
-- Score out of 50 points
+- Hangman selection in random order
+- Category selection
+
 
 ### Game type
-- Multiple choice quiz based on countries.
-
-- Player types their choice and is informed of whether or not they are correct through text.
-
+- Hangman style game
+- Player types their choice of letters or word and is informed of whether or not they are correct through text.
 
 
 ![Responsive Image](https://github.com/passportpowell/project-2/blob/main/assets/images/right-answer.jpg?raw=true)
@@ -39,24 +36,25 @@ As a visiting user I would like to see what the game is about and to have access
 ![Responsive Image](https://github.com/passportpowell/project-2/blob/main/assets/images/wrong-answer.jpg?raw=true)
 
 
-- correct letters revealed update in real time after each correct guess.
+- Correct letters revealed in real time after each correct guess.
 
-- option after the game ends allowing player to play again.
+- Option after the game ends allowing player to play again.
 
 ![Responsive Image](https://github.com/passportpowell/project-2/blob/main/assets/images/score-popup.jpg?raw=true)
 
 
 
 ## Technologies Used
-Python - used for Coding the game
+Python - Used for Coding the game
 
-while, if, def - used
+While, if, def - used
 
-github - Used for hosting repository for easy sharing.
+Github - Used for hosting repository for easy sharing.
 
-gitpod -  Used for writing the python code.
+Gitpod - Used for writing the python code.
 
-Heroku - used for deployment
+Heroku - Used for deployment
+
 
 ## Running Tests
 
@@ -67,37 +65,31 @@ Heroku - used for deployment
 - gave correct letter to see if letters were revealed in the word
 - gave correct word outright to see if game ended with congratulations
 - Checked text is understood
-- check for hangman picture to gradually be shown based on incorrect answers
+- checked for hangman picture to gradually be shown based on incorrect answers
+- Checked for game to offer a new game with options Y or N
 
 
 ## Bugs Along The Way
 
-# to fix - decrement for attempts left show up twice. one with just the number and 
-# the other time w attempts left
-# to fix - last letter doesn't show when all answers are correct
-# to fix - use DEF function in code
-# to fix - if multiple of the same letter ONLY the 1st occurance is shown instead of all. Fixed by finding out i had to use 
-# enumerate() function. solutions found her https://stackoverflow.com/questions/27662404/trying-to-find-the-same-item-in-a-list-with-the-context-of-hangman 
-# https://stackoverflow.com/questions/63922601/how-to-build-a-list-with-the-duplicated-letters-from-another-string-python-h
+- Decrement for attempts left show up twice, once with just the number and the other with attempts left: Fixed by deleting extra code written.
 
-# to fix - Game wont end after correctly guessing
-# to fix - attempts won decrement. Fixed by realising that i had not spell checked.
-# To fix - have image of a hangman progress each time answer is wrong
-# to fix - Want this code for elif G to pick a random word from all the above countries
-Code wasn't working after i completed my unctions as i forgot to call the function at the end
+- last letter doesn't show when all answers are correct: Unsure of how it was fixed but I had started again and it was woking 2nd time around.
 
-Was having major issues with code not running past allowing player to enter their 1st guest. I was trying to subract a "list" from a "list" and upon changing them to "sets" i had forgotten to change my "append" to "add"
+- If multiple of the same letter were in the word (e.g. GREECE) ONLY the 1st occurance of the letter was shown instead of all of them (e.g. GRE_C_): searching for a way to fix the issue online by making use of the enumerate() function.
 
-Attempts left would not decrement instead just shows -1 Fixed by finding out that i was printing the wrong code.
+- Game wouldn't end after correctly guessing all letters or word: Fixed by adding a "player_won" with a booleon value that triggered to True upon completion.
 
-Game allows me to enter numbers and punction which idon't want. fixed by -
+- Attempts_left would not decrement by 1 each time: Fixed by realising that I had not spell checked and kept missing the letter "S"
 
-Game wont allow me to show len + text in text fixed by putting text outside of my F string {} as i had it inside seperated by a ','. e.g. i put (f({len(word), Letters} )) instead of (f"{len(word)} Letters)
+- Have image of a hangman progress each time answer is wrong: Originally tried to put it as a list but couldn't get it to call so created a DEF specifically for it and doing an == operator and if/elif statement against "attempts left". 
 
-last letter doesn't show when all answers are correct a solution was to print the word (country) in the congraulations section.
+- Was having major issues with code not running past allowing player to enter their 1st guest: Fixed by realising I was trying to subract a "list" from a "list" and upon changing them to "sets" i had forgotten to change my "append" to "add". eventually scrapped that idea of sets and made it append a list for used letters and words instead.
+
+- Game allowed me to enter numbers and punction which i didn't want: Fixed by using isalpha method as it returned True if the player input was A-Z. I could then code around this check.
+
 
 ## Deployment
-Deployment was achieved via GitHub and gitpod and Heroku pages using the following steps
+Deployment was achieved via GitHub, Gitpod and Heroku pages using the following steps
 
 ## Github
  - In the GitHub repository go to the Settings tab,
@@ -116,4 +108,10 @@ Deployment was achieved via GitHub and gitpod and Heroku pages using the followi
 - 
 
 ## Credits
+- Code and explanantion for use of enumerate() function found: 
+https://stackoverflow.com/questions/27662404/trying-to-find-the-same-item-in-a-list-with-the-context-of-hangman 
+https://stackoverflow.com/questions/63922601/how-to-build-a-list-with-the-duplicated-letters-from-another-string-python-h
+
+- Code for isalpha() method found: 
+https://www.w3schools.com/python/ref_string_isalpha.asp
 
