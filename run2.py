@@ -258,7 +258,6 @@ def main():
 
     if new_game.upper() == "Y" or new_game.upper() == "YES" or new_game.upper() == "":
         print("Startin new game")
-        word = pick_country()
         main()
 
     else:

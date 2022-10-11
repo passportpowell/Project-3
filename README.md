@@ -87,6 +87,8 @@ Heroku - Used for deployment
 
 - Game allowed me to enter numbers and punction which i didn't want: Fixed by using isalpha method as it returned True if the player input was A-Z. I could then code around this check.
 
+- Upon trying to start a new game after completing the 1st, it would require the player to choose a catergory twice: Fixed removing line 261 as was running the function(pick_country), then runs the function again when it was calling main.
+
 
 ## Deployment
 Deployment was achieved via GitHub, Gitpod and Heroku pages using the following steps
