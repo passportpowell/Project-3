@@ -178,7 +178,6 @@ def hang_game(word):
     print("You have", attempts_left, "attempts to guess the country name")
     print("----------------------------------------------------------------- \n")
 
-    print(word) # To Fix - Remove as it gives the answer
     print("\n")
 
     while not player_won and attempts_left > 0:
@@ -254,7 +253,7 @@ def main():
     word = pick_country()
     hang_game(word)
 
-    new_game = input("hang_game Again? (Y-YES/N-NO): \n" )
+    new_game = input("Start A New Game? (Y-YES/N-NO): \n" )
 
     if new_game.upper() == "Y" or new_game.upper() == "YES" or new_game.upper() == "":
         print("Startin new game")
