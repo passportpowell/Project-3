@@ -44,7 +44,7 @@ def hangman_pic(attempts_left):
         print("__|__\n")
 
     if attempts_left == 6:
-        print("   _________ n")
+        print("   _________ \n")
         print("  |         \n")
         print("  |      \n")
         print("  |      \n")
@@ -57,7 +57,7 @@ def hangman_pic(attempts_left):
         print("  |        | \n")
         print("  |        | \n")
         print("  |        O \n")
-        print("  |         n")
+        print("  |         \n")
         print("  |      \n")
         print("__|__\n")
 
@@ -165,7 +165,7 @@ def pick_country():
 def hang_game(word):
 
     # Puts the chosen country as "_" for each letter in the word
-    country_chosen = "_" * len(word)
+    country_chosen = "_ " * len(word)
     # for use when changed to True upon completion and used to allow game to end
     player_won = False
     #  Used letters and word list used to store player choices and used to show back to player upon using the same letter again.
