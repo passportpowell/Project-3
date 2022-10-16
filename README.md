@@ -117,13 +117,15 @@ As a visiting user I would like to see what the game is about and to have access
 
 
 ## Github
- - In the GitHub repository go to the Settings tab,
+- In the GitHub repository go to the Settings tab,
 
- - Using the source section drop-down menu, select the Master/ or Main Branch,
+- Using the source section drop-down menu, select the Master/ or Main Branch,
 
- - Once completed a link will be provided that may take a few minutes to go live,
+- Once completed a link will be provided that may take a few minutes to go live,
 
-- Live link https://github.com/passportpowell/project-3
+- Live Heroku Link to play the gae https://otis-hangman.herokuapp.com/
+
+- Live github link https://github.com/passportpowell/project-3
 
 ## gitpod
  - In the terminal type python3 -m http.server
