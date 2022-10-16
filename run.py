@@ -113,7 +113,7 @@ def pick_country():
     print("-----------------------------------------------------------------")
     print("Welcome to Hangman!")
     print("----------------------------------------------------------------- \n")
-    category = input("What Category would you like to play? \nA - Europe \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All: ".upper())
+    category = input("What Category would you like to play? \nA - Europe \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All \n: ".upper())
 
     if category.upper() == "A" or category.upper() == "":
         word = random.choice(country_europe)
