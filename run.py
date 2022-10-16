@@ -113,7 +113,7 @@ def pick_country():
     print("-----------------------------------------------------------------")
     print("Welcome to Hangman!")
     print("----------------------------------------------------------------- \n")
-    category = input("What Category would you like to play? \nA - Europe, \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All: ".upper())
+    category = input("What Category would you like to play? \nA - Europe \nB - South america \nC - Central America \nD - Africa \nE - Asia \nF - Oceana \nG - All: ".upper())
 
     if category.upper() == "A" or category.upper() == "":
         word = random.choice(country_europe)
@@ -165,7 +165,7 @@ def pick_country():
 def hang_game(word):
 
     # Puts the chosen country as "_" for each letter in the word
-    country_chosen = "_ " * len(word)
+    country_chosen = "_" * len(word)
     # for use when changed to True upon completion and used to allow game to end
     player_won = False
     #  Used letters and word list used to store player choices and used to show back to player upon using the same letter again.
